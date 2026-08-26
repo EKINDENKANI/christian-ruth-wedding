@@ -1,0 +1,8398 @@
+:root {
+    --cream: #f7f3ec;
+    --cream-dark: #eee8dd;
+    --sage: #6f796b;
+    --sage-dark: #4d574b;
+    --gold: #b49a67;
+    --brown: #292720;
+    --muted: #777268;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+/* =====================================================
+   HERO — CHRISTIAN & RUTH
+===================================================== */
+
+.hero {
+
+    height: 100svh;
+    min-height: 680px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #6f786d;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.hero-background {
+
+    position: absolute;
+
+    inset: -2%;
+
+    background-image:
+        url("gallery/un.JPG");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.04);
+
+    animation:
+        heroZoom
+        12s
+        ease-out
+        forwards;
+
+    z-index: 0;
+
+}
+
+
+@keyframes heroZoom {
+
+    from {
+
+        transform:
+            scale(1.04);
+
+    }
+
+    to {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   VOILE
+===================================================== */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(25,29,25,.28) 0%,
+            rgba(25,29,25,.08) 40%,
+            rgba(25,29,25,.58) 100%
+        );
+
+    z-index: 1;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.hero-navbar {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 82px;
+
+    padding:
+        0 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 20;
+
+    transition:
+
+        background .6s ease,
+        backdrop-filter .6s ease,
+        box-shadow .6s ease,
+        height .6s ease,
+        transform .6s ease;
+
+}
+
+
+/* =====================================================
+   NAVBAR APRÈS SCROLL
+===================================================== */
+
+.hero-navbar.scrolled {
+
+    position: fixed;
+
+    top: 0;
+
+    height: 68px;
+
+    background:
+        rgba(247,243,236,.92);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    box-shadow:
+        0 8px 30px
+        rgba(30,30,25,.08);
+
+}
+
+
+.hero-navbar.scrolled::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        rgba(180,154,103,.25);
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.nav-logo {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    transition:
+        color .5s ease,
+        letter-spacing .5s ease;
+
+}
+
+
+.nav-logo span {
+
+    color: #d8c69a;
+
+}
+
+
+.hero-navbar.scrolled
+.nav-logo {
+
+    color: #303a34;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =====================================================
+   LIENS DESKTOP
+===================================================== */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    opacity: .85;
+
+    transition:
+        color .4s ease,
+        opacity .4s ease;
+
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #d8c69a;
+
+    transition:
+        width .4s ease;
+
+}
+
+
+.nav-links a:hover {
+
+    opacity: 1;
+
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* NAVBAR SCROLLÉE */
+
+.hero-navbar.scrolled
+.nav-links a {
+
+    color: #303a34;
+
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
+
+.menu-toggle {
+
+    position: relative;
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    height: 1px;
+
+    background: white;
+
+    transition:
+
+        width .4s ease,
+        background .4s ease,
+        transform .5s ease;
+
+}
+
+
+.menu-toggle span:first-child {
+
+    width: 27px;
+
+}
+
+
+.menu-toggle span:last-child {
+
+    width: 17px;
+
+}
+
+
+.menu-toggle:hover span:first-child {
+
+    width: 20px;
+
+}
+
+
+.menu-toggle:hover span:last-child {
+
+    width: 27px;
+
+}
+
+
+/* couleur après scroll */
+
+.hero-navbar.scrolled
+.menu-toggle span {
+
+    background: #303a34;
+
+}
+
+
+/* =====================================================
+   CADRE HERO
+===================================================== */
+
+.hero-frame {
+
+    position: absolute;
+
+    inset: 28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.45);
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    clip-path:
+        inset(0 100% 0 0);
+
+    animation:
+        frameReveal
+        1.8s
+        cubic-bezier(.16,1,.3,1)
+        1s
+        forwards;
+
+}
+
+
+@keyframes frameReveal {
+
+    to {
+
+        clip-path:
+            inset(0 0 0 0);
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 4;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+/* =====================================================
+   KICKER
+===================================================== */
+
+.hero-kicker {
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 38px;
+
+    opacity: 0;
+
+    animation:
+        fadeUp
+        .9s
+        ease
+        .4s
+        forwards;
+
+}
+
+
+/* =====================================================
+   PRÉNOMS
+===================================================== */
+
+.hero-names {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    line-height: .72;
+
+    letter-spacing: -5px;
+
+    margin: 0;
+
+}
+
+
+.name {
+
+    display: block;
+
+    font-size:
+        clamp(
+            85px,
+            13vw,
+            170px
+        );
+
+    opacity: 0;
+
+}
+
+
+/* CHRISTIAN */
+
+.name-christian {
+
+    animation:
+        christianReveal
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        .7s
+        forwards;
+
+}
+
+
+/* RUTH */
+
+.name-ruth {
+
+    animation:
+        ruthReveal
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        1.25s
+        forwards;
+
+}
+
+
+/* =====================================================
+   ANIMATION PRÉNOMS
+===================================================== */
+
+@keyframes christianReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-45px)
+            translateY(25px);
+
+        filter:
+            blur(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+@keyframes ruthReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(45px)
+            translateY(25px);
+
+        filter:
+            blur(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   &
+===================================================== */
+
+.hero-and {
+
+    display: block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 46px;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+    opacity: 0;
+
+    animation:
+        fadeIn
+        .8s
+        1s
+        forwards;
+
+}
+
+
+/* =====================================================
+   SÉPARATEUR
+===================================================== */
+
+.hero-separator {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin:
+        38px auto
+        25px;
+
+    opacity: 0;
+
+    animation:
+        fadeIn
+        1s
+        1.8s
+        forwards;
+
+}
+
+
+.hero-separator span {
+
+    width: 45px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.65);
+
+}
+
+
+.hero-separator i {
+
+    color: #d8c69a;
+
+    font-size: 11px;
+
+    font-style: normal;
+
+    animation:
+        starPulse
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes starPulse {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+
+        opacity: .7;
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.25);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.hero-date {
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    font-weight: 400;
+
+    margin: 0;
+
+    opacity: 0;
+
+    animation:
+        fadeUp
+        .9s
+        2s
+        forwards;
+
+}
+
+
+/* =====================================================
+   CITATION
+===================================================== */
+
+.hero-quote {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            20px,
+            3vw,
+            28px
+        );
+
+    font-style: italic;
+
+    margin-top: 23px;
+
+    opacity: 0;
+
+    animation:
+        fadeUp
+        1s
+        2.25s
+        forwards;
+
+}
+
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+.hero-scroll {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 5;
+
+    color: white;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    opacity: 0;
+
+    animation:
+        fadeIn
+        1s
+        2.8s
+        forwards;
+
+}
+
+
+.hero-scroll span {
+
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+.scroll-line {
+
+    width: 1px;
+
+    height: 42px;
+
+    background: white;
+
+    opacity: .65;
+
+    margin: 13px auto 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.scroll-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #d8c69a;
+
+    animation:
+        scrollLine
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes scrollLine {
+
+    0% {
+        top: -100%;
+    }
+
+    50% {
+        top: 0;
+    }
+
+    100% {
+        top: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   MENU OVERLAY
+===================================================== */
+
+.menu-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background:
+        #f7f3ec;
+
+    color: #303a34;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    clip-path:
+        circle(0% at 95% 5%);
+
+    transition:
+
+        clip-path
+        1s
+        cubic-bezier(.77,0,.18,1),
+
+        opacity .3s ease,
+
+        visibility .3s ease;
+
+}
+
+
+.menu-overlay.active {
+
+    visibility: visible;
+
+    opacity: 1;
+
+    clip-path:
+        circle(150% at 95% 5%);
+
+}
+
+
+/* =====================================================
+   CONTENU MENU
+===================================================== */
+
+.menu-inner {
+
+    width: 100%;
+
+    height: 100%;
+
+    padding:
+        35px 6%;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =====================================================
+   TOP MENU
+===================================================== */
+
+.menu-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.menu-top > span {
+
+    color: #b49a67;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.menu-close {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: 1px solid
+        rgba(180,154,103,.4);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #303a34;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+
+        transform .4s ease,
+        background .4s ease;
+
+}
+
+
+.menu-close:hover {
+
+    transform:
+        rotate(90deg);
+
+    background:
+        rgba(180,154,103,.12);
+
+}
+
+
+/* =====================================================
+   NAVIGATION MENU
+===================================================== */
+
+.menu-navigation {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    width: 100%;
+
+}
+
+
+.menu-link {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 25px;
+
+    padding:
+        7px 0;
+
+    color: #303a34;
+
+    text-decoration: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+}
+
+
+.menu-overlay.active
+.menu-link {
+
+    animation:
+        menuLinkReveal
+        .8s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+.menu-overlay.active
+.menu-link:nth-child(1) {
+    animation-delay: .25s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(2) {
+    animation-delay: .32s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(3) {
+    animation-delay: .39s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(4) {
+    animation-delay: .46s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(5) {
+    animation-delay: .53s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(6) {
+    animation-delay: .60s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(7) {
+    animation-delay: .67s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(8) {
+    animation-delay: .74s;
+}
+
+.menu-overlay.active
+.menu-link:nth-child(9) {
+    animation-delay: .81s;
+}
+
+
+@keyframes menuLinkReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.menu-link small {
+
+    width: 30px;
+
+    color: #b49a67;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.menu-link span {
+
+    position: relative;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            48px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    transition:
+        color .35s ease,
+        transform .35s ease;
+
+}
+
+
+.menu-link span::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -4px;
+
+    width: 0;
+
+    height: 1px;
+
+    background:
+        #b49a67;
+
+    transition:
+        width .5s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.menu-link:hover span {
+
+    color: #8d7650;
+
+    transform:
+        translateX(12px);
+
+}
+
+
+.menu-link:hover span::after {
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   BAS MENU
+===================================================== */
+
+.menu-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(180,154,103,.25);
+
+    color:
+        rgba(48,58,52,.45);
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.menu-bottom em {
+
+    color: #b49a67;
+
+    font-style: normal;
+
+}
+
+
+/* =====================================================
+   ANIMATIONS GÉNÉRALES
+===================================================== */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 700px) {
+
+    .hero {
+
+        min-height: 650px;
+
+    }
+
+
+    /* navbar */
+
+    .hero-navbar {
+
+        height: 70px;
+
+        padding:
+            0 20px;
+
+    }
+
+
+    .hero-navbar.scrolled {
+
+        height: 62px;
+
+    }
+
+
+    .nav-logo {
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+
+    .menu-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .menu-toggle span:first-child {
+
+        width: 23px;
+
+    }
+
+
+    .menu-toggle span:last-child {
+
+        width: 15px;
+
+    }
+
+
+    /* cadre */
+
+    .hero-frame {
+
+        inset: 16px;
+
+    }
+
+
+    /* hero */
+
+    .hero-kicker {
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .hero-names {
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .name {
+
+        font-size:
+            clamp(
+                76px,
+                21vw,
+                110px
+            );
+
+    }
+
+
+    .hero-and {
+
+        font-size: 35px;
+
+    }
+
+
+    .hero-separator {
+
+        margin-top: 30px;
+
+    }
+
+
+    .hero-separator span {
+
+        width: 30px;
+
+    }
+
+
+    .hero-date {
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .hero-quote {
+
+        font-size: 20px;
+
+    }
+
+
+    .hero-scroll {
+
+        bottom: 23px;
+
+    }
+
+
+    /* menu */
+
+    .menu-inner {
+
+        padding:
+            25px 22px;
+
+    }
+
+
+    .menu-top > span {
+
+        font-size: 6px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .menu-navigation {
+
+        margin:
+            20px 0;
+
+    }
+
+
+    .menu-link {
+
+        gap: 13px;
+
+        padding:
+            6px 0;
+
+    }
+
+
+    .menu-link small {
+
+        width: 22px;
+
+        font-size: 6px;
+
+    }
+
+
+    .menu-link span {
+
+        font-size:
+            clamp(
+                27px,
+                8vw,
+                38px
+            );
+
+    }
+
+
+    .menu-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+}
+
+
+
+/* =========================
+   GENERAL
+========================= */
+
+section {
+    padding: 110px 7vw;
+}
+
+.section-label {
+    text-align: center;
+
+    color: var(--gold);
+
+    text-transform: uppercase;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.section-title {
+    text-align: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(50px, 7vw, 85px);
+
+    font-weight: 400;
+
+    line-height: .9;
+}
+
+.section-description {
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    line-height: 2;
+
+    font-size: 13px;
+}
+
+/* =====================================================
+   NOTRE HISTOIRE
+===================================================== */
+
+.our-story {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--cream);
+
+    padding-top: 140px;
+    padding-bottom: 150px;
+
+}
+
+
+/* =====================================================
+   INTRODUCTION
+===================================================== */
+
+.story-intro {
+
+    max-width: 850px;
+
+    margin: 0 auto 100px;
+
+    text-align: center;
+
+}
+
+
+.story-main-title {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(48px, 7vw, 88px);
+
+    line-height: .92;
+
+    letter-spacing: -2px;
+
+    color: var(--brown);
+
+}
+
+
+.story-intro-text {
+
+    max-width: 570px;
+
+    margin: 35px auto 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   GRANDE PHOTO
+===================================================== */
+
+.story-feature {
+
+    max-width: 900px;
+
+    margin: 0 auto 160px;
+
+    position: relative;
+
+}
+
+
+.story-feature-image {
+
+    height: 650px;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.story-feature-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(25,28,24,.35)
+        );
+
+    pointer-events: none;
+
+}
+
+
+.story-feature-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transform: scale(1.06);
+
+    transition:
+        transform 1.4s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.story-feature:hover img {
+
+    transform: scale(1);
+
+}
+
+
+.story-feature-caption {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 30px;
+
+    right: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: white;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.story-timeline {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    position: relative;
+
+}
+
+
+/*
+    Grande ligne verticale
+*/
+
+.story-timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #d0c6b5 8%,
+            #d0c6b5 92%,
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   EVENEMENTS
+===================================================== */
+
+.story-event {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+    margin-bottom: 90px;
+
+    position: relative;
+
+}
+
+
+.story-event-left {
+
+    padding-right: 45px;
+
+}
+
+
+.story-event-right {
+
+    padding-left: 45px;
+
+}
+
+
+/* =====================================================
+   PHOTOS DES ETAPES
+===================================================== */
+
+.story-event-photo {
+
+    height: 330px;
+
+    overflow: hidden;
+
+}
+
+
+.story-event-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 1s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.story-event-photo:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* =====================================================
+   TEXTE
+===================================================== */
+
+.story-event-content {
+
+    padding: 20px;
+
+}
+
+
+.story-year {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.story-event-content h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 48px;
+
+    line-height: .95;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+
+}
+
+
+.story-event-content p {
+
+    max-width: 350px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   POINT CENTRAL
+===================================================== */
+
+.story-dot {
+
+    position: relative;
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--cream);
+
+    border: 1px solid var(--gold);
+
+    position: absolute;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    margin-top: -45px;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.story-dot span {
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    transition: .5s;
+
+}
+
+
+.story-dot.active {
+
+    transform:
+        translateX(-50%)
+        scale(1.5);
+
+}
+
+
+.story-dot.active span {
+
+    box-shadow:
+        0 0 0 6px
+        rgba(180,154,103,.12);
+
+}
+
+
+/* =====================================================
+   FIN DE L'HISTOIRE
+===================================================== */
+
+.story-final {
+
+    text-align: center;
+
+    padding-top: 50px;
+
+    position: relative;
+
+}
+
+
+.story-final h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(60px, 8vw, 100px);
+
+    font-weight: 400;
+
+    line-height: .8;
+
+}
+
+
+.story-final p {
+
+    max-width: 400px;
+
+    margin: 30px auto;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+.final-heart {
+
+    color: var(--gold);
+
+    font-size: 38px;
+
+    margin-top: 30px;
+
+    animation:
+        heartPulse 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes heartPulse {
+
+    0%,100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+    }
+
+}
+
+
+/* =====================================================
+   APPARITION AU SCROLL
+===================================================== */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity 1s ease,
+        transform 1.1s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 760px) {
+
+    .our-story {
+
+        padding-top: 90px;
+
+        padding-bottom: 100px;
+
+    }
+
+
+    .story-intro {
+
+        margin-bottom: 70px;
+
+    }
+
+
+    .story-main-title {
+
+        font-size: 53px;
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .story-feature {
+
+        margin-bottom: 100px;
+
+    }
+
+
+    .story-feature-image {
+
+        height: 500px;
+
+    }
+
+
+    .story-feature-caption {
+
+        left: 18px;
+
+        right: 18px;
+
+        bottom: 18px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    /*
+        Timeline mobile
+    */
+
+    .story-timeline::before {
+
+        left: 16px;
+
+        transform: none;
+
+    }
+
+
+    .story-event {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 25px;
+
+        padding-left: 45px;
+
+        margin-bottom: 75px;
+
+    }
+
+
+    .story-event-left,
+    .story-event-right {
+
+        padding: 0;
+
+    }
+
+
+    .story-event-photo {
+
+        height: 300px;
+
+        order: 1;
+
+    }
+
+
+    .story-event-content {
+
+        padding: 0;
+
+        order: 2;
+
+    }
+
+
+    .story-event-content h3 {
+
+        font-size: 43px;
+
+    }
+
+
+    .story-event-content p {
+
+        max-width: none;
+
+    }
+
+
+    .story-dot {
+
+        left: 16px;
+
+        margin-top: -30px;
+
+    }
+
+
+    .story-final {
+
+        padding-left: 45px;
+
+        text-align: left;
+
+    }
+
+
+    .story-final h3 {
+
+        font-size: 68px;
+
+    }
+
+
+    .story-final p {
+
+        margin-left: 0;
+
+    }
+
+}
+
+/* =====================================================
+   LE GRAND JOUR
+===================================================== */
+
+.wedding-day {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: white;
+
+    padding: 150px 6% 160px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.day-intro {
+
+    max-width: 750px;
+
+    margin: 0 auto 90px;
+
+    text-align: center;
+
+}
+
+
+.day-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(52px, 7vw, 88px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -2px;
+
+    color: var(--brown);
+
+    margin: 20px 0 30px;
+
+}
+
+
+.day-intro p {
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    color: var(--muted);
+
+}
+
+
+/* =====================================================
+   CONTENEUR DES ÉVÉNEMENTS
+===================================================== */
+
+.events-container {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 30px;
+
+}
+
+
+/* =====================================================
+   CARTE
+===================================================== */
+
+.event-card {
+
+    position: relative;
+
+    height: 700px;
+
+    overflow: hidden;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.event-card-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+}
+
+
+.event-card-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transform: scale(1.06);
+
+    transition:
+        transform 1.5s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.event-card:hover
+.event-card-image img {
+
+    transform: scale(1);
+
+}
+
+
+/* =====================================================
+   VOILE
+===================================================== */
+
+.event-card-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,23,20,.08),
+            rgba(20,23,20,.68)
+        );
+
+    transition:
+        background .7s ease;
+
+}
+
+
+.event-card:hover
+.event-card-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,23,20,.18),
+            rgba(20,23,20,.76)
+        );
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.event-card-content {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 55px;
+
+}
+
+
+/* numéro */
+
+.event-number {
+
+    position: absolute;
+
+    top: 45px;
+
+    right: 45px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    opacity: .8;
+
+}
+
+
+/* type */
+
+.event-type {
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* heure */
+
+.event-time {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(70px, 8vw, 110px);
+
+    line-height: .8;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ligne */
+
+.event-line {
+
+    width: 45px;
+
+    height: 1px;
+
+    background:
+        #d8c69a;
+
+    margin-bottom: 22px;
+
+    transition:
+        width .7s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.event-card:hover
+.event-line {
+
+    width: 90px;
+
+}
+
+
+/* titre */
+
+.event-card h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    margin: 0 0 12px;
+
+}
+
+
+.event-card p {
+
+    font-size: 12px;
+
+    margin: 0 0 8px;
+
+}
+
+
+.event-location {
+
+    font-size: 10px;
+
+    opacity: .8;
+
+}
+
+
+/* =====================================================
+   ITINÉRAIRE
+===================================================== */
+
+.event-map {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: fit-content;
+
+    margin-top: 30px;
+
+    padding-bottom: 7px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.5);
+
+    color: white;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.event-map span {
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.event-map:hover span {
+
+    transform:
+        translateX(6px);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 760px) {
+
+    .wedding-day {
+
+        padding:
+            100px 18px
+            110px;
+
+    }
+
+
+    .day-intro {
+
+        margin-bottom: 60px;
+
+    }
+
+
+    .day-intro h2 {
+
+        font-size: 54px;
+
+    }
+
+
+    .events-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .event-card {
+
+        height: 620px;
+
+    }
+
+
+    .event-card-content {
+
+        padding: 35px;
+
+    }
+
+
+    .event-number {
+
+        top: 30px;
+
+        right: 30px;
+
+    }
+
+
+    .event-time {
+
+        font-size: 80px;
+
+    }
+
+}
+.events-container
+.event-card:nth-child(2) {
+
+    transition-delay: .18s;
+
+}
+
+/* =====================================================
+   COMPTE À REBOURS
+===================================================== */
+
+.countdown-section {
+
+    position: relative;
+
+    min-height: 720px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #465247;
+
+    color: #f7f3ec;
+
+    padding:
+        130px 30px;
+
+}
+
+
+/* légère texture lumineuse */
+
+.countdown-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,198,154,.08),
+            transparent 70%
+        );
+
+    top: -300px;
+
+    right: -200px;
+
+    pointer-events: none;
+
+}
+
+
+.countdown-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.035),
+            transparent 70%
+        );
+
+    bottom: -300px;
+
+    left: -200px;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.countdown-content {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================================
+   PETIT SYMBOLE
+===================================================== */
+
+.countdown-symbol {
+
+    color: #d8c69a;
+
+    font-size: 12px;
+
+    margin-bottom: 28px;
+
+    animation:
+        countdownStar 3s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes countdownStar {
+
+    0%,100% {
+
+        opacity: .5;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.countdown-label {
+
+    color: #d8c69a;
+
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.countdown-title {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(48px, 6vw, 76px);
+
+    line-height: .95;
+
+    font-weight: 400;
+
+    letter-spacing: -1px;
+
+    margin:
+        20px auto 80px;
+
+}
+
+
+/* =====================================================
+   COMPTEUR
+===================================================== */
+
+.countdown-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+
+/* =====================================================
+   UNITÉ
+===================================================== */
+
+.countdown-unit {
+
+    min-width: 150px;
+
+}
+
+
+.countdown-number {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(75px, 10vw, 125px);
+
+    line-height: .75;
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+
+    color: #f7f3ec;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+
+/* =====================================================
+   LABEL UNITÉ
+===================================================== */
+
+.countdown-unit-label {
+
+    margin-top: 25px;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: rgba(247,243,236,.65);
+
+}
+
+
+/* =====================================================
+   SÉPARATEURS
+===================================================== */
+
+.countdown-divider {
+
+    width: 1px;
+
+    height: 85px;
+
+    background:
+        rgba(216,198,154,.35);
+
+}
+
+
+/* =====================================================
+   BAS
+===================================================== */
+
+.countdown-bottom {
+
+    margin-top: 85px;
+
+}
+
+
+.countdown-line {
+
+    width: 45px;
+
+    height: 1px;
+
+    background: #d8c69a;
+
+    margin:
+        0 auto 25px;
+
+}
+
+
+.countdown-date {
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    color: #d8c69a;
+
+}
+
+
+.countdown-bottom p {
+
+    max-width: 380px;
+
+    margin: 20px auto 0;
+
+    color:
+        rgba(247,243,236,.65);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+.countdown-heart {
+
+    margin-top: 25px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    color: #d8c69a;
+
+    animation:
+        countdownHeart 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes countdownHeart {
+
+    0%,100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.12);
+
+    }
+
+}
+
+
+/* =====================================================
+   ANIMATION DES CHIFFRES
+===================================================== */
+
+.countdown-number.change {
+
+    animation:
+        numberChange .35s
+        ease;
+
+}
+
+
+@keyframes numberChange {
+
+    0% {
+
+        opacity: .3;
+
+        transform:
+            translateY(8px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* =====================================================
+   COMPTE À REBOURS — APRÈS ZERO
+===================================================== */
+
+.countdown-finished {
+
+    display: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    text-align: center;
+
+}
+
+
+/* Petit symbole */
+
+.finished-symbol {
+
+    display: block;
+
+    color: #d8c69a;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* Titre */
+
+.countdown-finished h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(55px, 7vw, 85px);
+
+    line-height: .8;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+    margin: 0;
+
+}
+
+
+.countdown-finished h3 em {
+
+    color: #d8c69a;
+
+    font-style: italic;
+
+}
+
+
+/* Texte */
+
+.countdown-finished p {
+
+    margin:
+        30px auto 0;
+
+    color:
+        rgba(247,243,236,.65);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+/* Cœur */
+
+.finished-heart {
+
+    margin-top: 25px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    color: #d8c69a;
+
+    animation:
+        countdownHeart 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   ACTIVATION
+===================================================== */
+
+.countdown-finished.show {
+
+    display: block;
+
+    animation:
+        countdownFinishedReveal
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+@keyframes countdownFinishedReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 760px) {
+
+    .countdown-section {
+
+        min-height: auto;
+
+        padding:
+            110px 20px;
+
+    }
+
+
+    .countdown-title {
+
+        font-size: 50px;
+
+        margin-bottom: 65px;
+
+    }
+
+
+    .countdown-wrapper {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 55px 20px;
+
+    }
+
+
+    .countdown-unit {
+
+        min-width: 0;
+
+    }
+
+
+    .countdown-number {
+
+        font-size: 80px;
+
+    }
+
+
+    .countdown-unit-label {
+
+        margin-top: 18px;
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .countdown-divider {
+
+        display: none;
+
+    }
+
+
+    .countdown-bottom {
+
+        margin-top: 70px;
+
+    }
+
+
+    .countdown-date {
+
+        font-size: 9px;
+
+        letter-spacing: 4px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   NOS PHOTOS
+===================================================== */
+
+.photo-gallery {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #f7f3ec;
+
+    color: #292720;
+
+    padding:
+        150px 6%
+        170px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.gallery-intro {
+
+    max-width: 850px;
+
+    margin:
+        0 auto 100px;
+
+    text-align: center;
+
+}
+
+
+.gallery-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(70px, 10vw, 125px);
+
+    font-weight: 400;
+
+    line-height: .72;
+
+    letter-spacing: -4px;
+
+    margin:
+        25px 0 35px;
+
+}
+
+
+.gallery-intro h2 em {
+
+    color: #6f786d;
+
+}
+
+
+.gallery-intro p {
+
+    max-width: 430px;
+
+    margin: auto;
+
+    color: #777268;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   GRANDE PHOTO
+===================================================== */
+
+.gallery-feature {
+
+    max-width: 1050px;
+
+    margin:
+        0 auto 150px;
+
+}
+
+
+.gallery-image-wrapper {
+
+    position: relative;
+
+    height: 680px;
+
+    overflow: hidden;
+
+}
+
+
+.gallery-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transform: scale(1.06);
+
+    transition:
+        transform 1.5s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.gallery-feature:hover
+.gallery-image {
+
+    transform: scale(1);
+
+}
+
+
+/* =====================================================
+   BOUTON PHOTO
+===================================================== */
+
+.gallery-view {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    right: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    border: 0;
+
+    padding: 13px 18px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    color: #292720;
+
+    cursor: pointer;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+
+}
+
+
+.gallery-view:hover {
+
+    transform:
+        translateX(-5px);
+
+    background: white;
+
+}
+
+
+/* =====================================================
+   CAPTION
+===================================================== */
+
+.gallery-caption {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 15px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #777268;
+
+}
+
+
+/* =====================================================
+   COLLAGE
+===================================================== */
+
+.gallery-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    column-gap: 100px;
+
+    row-gap: 130px;
+
+    align-items: center;
+
+}
+
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+.gallery-item-image {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.gallery-item-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.gallery-item-image:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+.gallery-item-small
+.gallery-item-image {
+
+    height: 370px;
+
+}
+
+
+.gallery-item-medium
+.gallery-item-image {
+
+    height: 480px;
+
+}
+
+
+.gallery-item-large
+.gallery-item-image {
+
+    height: 600px;
+
+}
+
+
+.gallery-item-tall
+.gallery-item-image {
+
+    height: 520px;
+
+}
+
+
+/* =====================================================
+   PETIT BOUTON +
+===================================================== */
+
+.gallery-view-small {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    right: 18px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    border: 0;
+
+    background:
+        rgba(255,255,255,.92);
+
+    color: #292720;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.gallery-view-small:hover {
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* =====================================================
+   CAPTIONS
+===================================================== */
+
+.gallery-item figcaption {
+
+    padding-top: 13px;
+
+    color: #777268;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   CITATION
+===================================================== */
+
+.gallery-quote {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+}
+
+
+.gallery-quote span {
+
+    display: block;
+
+    color: #b49a67;
+
+    font-size: 11px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.gallery-quote p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   TEXTE CENTRAL
+===================================================== */
+
+.gallery-middle-text {
+
+    align-self: center;
+
+}
+
+
+.gallery-middle-text p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 45px;
+
+    line-height: .95;
+
+    font-style: italic;
+
+    color: #6f786d;
+
+}
+
+
+/* =====================================================
+   BAS DE GALERIE
+===================================================== */
+
+.gallery-bottom {
+
+    max-width: 1000px;
+
+    margin:
+        160px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: start;
+
+}
+
+
+.gallery-item-bottom {
+
+    margin: 0;
+
+}
+
+
+.gallery-item-bottom
+.gallery-item-image {
+
+    height: 470px;
+
+}
+
+
+.gallery-bottom-offset {
+
+    margin-top: 130px;
+
+}
+
+
+/* =====================================================
+   FIN
+===================================================== */
+
+.gallery-ending {
+
+    max-width: 700px;
+
+    margin:
+        180px auto 0;
+
+    text-align: center;
+
+}
+
+
+.gallery-ending > span {
+
+    color: #b49a67;
+
+    font-size: 11px;
+
+}
+
+
+.gallery-ending h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(65px, 8vw, 100px);
+
+    font-weight: 400;
+
+    line-height: .75;
+
+    letter-spacing: -2px;
+
+    margin:
+        35px 0;
+
+}
+
+
+.gallery-ending h3 em {
+
+    color: #6f786d;
+
+}
+
+
+.gallery-ending p {
+
+    text-transform: uppercase;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    color: #777268;
+
+}
+
+
+.gallery-ending-heart {
+
+    margin-top: 25px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color: #b49a67;
+
+    font-size: 35px;
+
+    animation:
+        countdownHeart 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+.gallery-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(25,27,24,.96);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+
+}
+
+
+.gallery-lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =====================================================
+   IMAGE LIGHTBOX
+===================================================== */
+
+.lightbox-content {
+
+    max-width: 80vw;
+
+    max-height: 85vh;
+
+    text-align: center;
+
+}
+
+
+.lightbox-content img {
+
+    max-width: 80vw;
+
+    max-height: 78vh;
+
+    width: auto;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform:
+        scale(.94);
+
+    transition:
+        opacity .45s ease,
+        transform .45s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.gallery-lightbox.active
+.lightbox-content img {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =====================================================
+   COMPTEUR LIGHTBOX
+===================================================== */
+
+.lightbox-counter {
+
+    margin-top: 18px;
+
+    color:
+        rgba(247,243,236,.6);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =====================================================
+   BOUTONS LIGHTBOX
+===================================================== */
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+
+    position: absolute;
+
+    border: 0;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 3;
+
+}
+
+
+.lightbox-close {
+
+    top: 30px;
+
+    right: 35px;
+
+    font-size: 35px;
+
+    font-weight: 200;
+
+}
+
+
+.lightbox-prev {
+
+    left: 40px;
+
+    font-size: 25px;
+
+}
+
+
+.lightbox-next {
+
+    right: 40px;
+
+    font-size: 25px;
+
+}
+
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+
+    color: #d8c69a;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 760px) {
+
+    .photo-gallery {
+
+        padding:
+            100px 18px
+            120px;
+
+    }
+
+
+    .gallery-intro {
+
+        margin-bottom: 70px;
+
+    }
+
+
+    .gallery-intro h2 {
+
+        font-size: 78px;
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .gallery-feature {
+
+        margin-bottom: 100px;
+
+    }
+
+
+    .gallery-image-wrapper {
+
+        height: 500px;
+
+    }
+
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 80px;
+
+    }
+
+
+    .gallery-item-small
+    .gallery-item-image {
+
+        height: 400px;
+
+    }
+
+
+    .gallery-item-medium
+    .gallery-item-image {
+
+        height: 470px;
+
+    }
+
+
+    .gallery-item-large
+    .gallery-item-image {
+
+        height: 500px;
+
+    }
+
+
+    .gallery-item-tall
+    .gallery-item-image {
+
+        height: 480px;
+
+    }
+
+
+    .gallery-quote {
+
+        padding: 20px 10px;
+
+    }
+
+
+    .gallery-quote p {
+
+        font-size: 30px;
+
+    }
+
+
+    .gallery-middle-text {
+
+        padding: 20px 10px;
+
+    }
+
+
+    .gallery-middle-text p {
+
+        font-size: 42px;
+
+    }
+
+
+    .gallery-bottom {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        margin-top: 100px;
+
+    }
+
+
+    .gallery-item-bottom
+    .gallery-item-image {
+
+        height: 450px;
+
+    }
+
+
+    .gallery-bottom-offset {
+
+        margin-top: 0;
+
+    }
+
+
+    .gallery-ending {
+
+        margin-top: 120px;
+
+    }
+
+
+    .gallery-ending h3 {
+
+        font-size: 72px;
+
+    }
+
+
+    /* LIGHTBOX */
+
+    .lightbox-content {
+
+        max-width: 90vw;
+
+    }
+
+
+    .lightbox-content img {
+
+        max-width: 90vw;
+
+        max-height: 70vh;
+
+    }
+
+
+    .lightbox-prev {
+
+        left: 15px;
+
+        font-size: 20px;
+
+    }
+
+
+    .lightbox-next {
+
+        right: 15px;
+
+        font-size: 20px;
+
+    }
+
+
+    .lightbox-close {
+
+        top: 18px;
+
+        right: 20px;
+
+    }
+
+}
+
+
+/* =====================================================
+   LE PROGRAMME
+===================================================== */
+
+.program-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: white;
+
+    color: #292720;
+
+    padding:
+        160px 6%
+        180px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.program-intro {
+
+    max-width: 800px;
+
+    margin:
+        0 auto 150px;
+
+    text-align: center;
+
+}
+
+
+
+
+.program-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(75px, 10vw, 125px);
+
+    line-height: .7;
+
+    font-weight: 400;
+
+    letter-spacing: -4px;
+
+    margin:
+        25px 0 35px;
+
+}
+
+
+.program-intro h2 em {
+
+    color: #6f786d;
+
+}
+
+
+.program-intro p {
+
+    max-width: 400px;
+
+    margin: auto;
+
+    color: #777268;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.program-timeline {
+
+    position: relative;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   LIGNE CENTRALE
+===================================================== */
+
+.program-line {
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background:
+        rgba(180,154,103,.25);
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.program-line-progress {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 0;
+
+    background:
+        #b49a67;
+
+    transition:
+        height .15s linear;
+
+}
+
+
+/* =====================================================
+   ÉVÉNEMENT
+===================================================== */
+
+.program-event {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 70px 1fr;
+
+    min-height: 500px;
+
+    align-items: center;
+
+}
+
+
+/* =====================================================
+   HEURE
+===================================================== */
+
+.program-time {
+
+    grid-column: 1;
+
+    text-align: right;
+
+    padding-right: 70px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 55px;
+
+    color: #6f786d;
+
+}
+
+
+/* =====================================================
+   POINT
+===================================================== */
+
+.program-dot {
+
+    grid-column: 2;
+
+    grid-row: 1;
+
+    justify-self: center;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: 1px solid
+        rgba(180,154,103,.6);
+
+    border-radius: 50%;
+
+    background: #f7f3ec;
+
+    color: #b49a67;
+
+    font-size: 11px;
+
+    z-index: 2;
+
+    transition:
+        transform .5s ease,
+        background .5s ease;
+
+}
+
+
+.program-event.active
+.program-dot {
+
+    background: #b49a67;
+
+    color: #f7f3ec;
+
+    transform:
+        scale(1.15);
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.program-info {
+
+    grid-column: 3;
+
+    padding-left: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.program-photo {
+
+    position: relative;
+    width: 145px;
+    height: 195px;
+    flex-shrink: 0;
+    padding: 6px;
+    background: #f7f3ec;
+    border: 1px solid rgba(180, 154, 103, 55);
+    box-sizing: border-box;
+
+
+}
+
+/*
+    Petit cadre décoratif derrière
+*/
+
+.program-photo::before {
+    
+    content:"";
+    position: absolute;
+    inset: 7px -7px -7px 7px;
+    border: 1px solid rgba(180,154,103,.28);
+    z-index: -1;
+
+}
+
+/*
+    Image
+*/
+
+.program-photo img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.04);
+    transition: 
+                transform 1.2s
+                cubic-bezier(.16, 1, .3, 1);
+
+}
+
+/*
+    Animation au survol
+*/
+
+.program-event:hover
+.program-photo img {
+
+    transform: scale(1);
+
+}
+
+.program-event:hover
+.program-photo::before {
+
+    transform: 
+        translate(-3px, -3px);
+    
+    transition: 
+                transform .8s
+                cubic-bezier(.16, 1, .3, 1);
+        
+}
+
+
+/* =====================================================
+   TEXTE
+===================================================== */
+
+.program-text {
+
+    max-width: 250px;
+
+}
+
+
+.program-number {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #b49a67;
+
+}
+
+
+.program-text h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 43px;
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    margin:
+        15px 0;
+
+}
+
+
+.program-text p {
+
+    color: #777268;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   ÉVÉNEMENTS INVERSÉS
+===================================================== */
+
+.program-event-reverse
+.program-time {
+
+    grid-column: 3;
+
+    grid-row: 1;
+
+    text-align: left;
+
+    padding-right: 0;
+
+    padding-left: 70px;
+
+}
+
+
+.program-event-reverse
+.program-info {
+
+    grid-column: 1;
+
+    grid-row: 1;
+
+    justify-content: flex-end;
+
+    padding-left: 0;
+
+    padding-right: 70px;
+
+}
+
+
+.program-event-reverse
+.program-text {
+
+    text-align: right;
+
+}
+
+
+/* =====================================================
+   FIN
+===================================================== */
+
+.program-ending {
+
+    max-width: 700px;
+
+    margin:
+        130px auto 0;
+
+    text-align: center;
+
+}
+
+
+.program-ending > span {
+
+    color: #b49a67;
+
+    font-size: 11px;
+
+}
+
+
+.program-ending h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(65px, 8vw, 100px);
+
+    line-height: .72;
+
+    font-weight: 400;
+
+    letter-spacing: -3px;
+
+    margin:
+        35px 0;
+
+}
+
+
+.program-ending h3 em {
+
+    color: #6f786d;
+
+}
+
+
+.program-heart {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 36px;
+
+    color: #b49a67;
+
+    animation:
+        countdownHeart 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 760px) {
+
+    .program-section {
+
+        padding:
+            110px 20px
+            130px;
+
+    }
+
+
+    .program-intro {
+
+        margin-bottom: 90px;
+
+    }
+
+
+    .program-intro h2 {
+
+        font-size: 78px;
+
+    }
+
+
+    .program-timeline {
+
+        padding-left: 35px;
+
+    }
+
+
+    /* Ligne */
+
+    .program-line {
+
+        left: 14px;
+
+        transform: none;
+
+    }
+
+
+    /* événement */
+
+    .program-event,
+    .program-event-reverse {
+
+        display: block;
+
+        min-height: auto;
+
+        padding:
+            0 0 100px;
+
+    }
+
+
+    /* Heure */
+
+    .program-time,
+    .program-event-reverse .program-time {
+
+        text-align: left;
+
+        padding:
+            0 0 15px;
+
+        font-size: 48px;
+
+    }
+
+
+    /* Point */
+
+    .program-dot {
+
+        position: absolute;
+
+        left: -42px;
+
+        top: 4px;
+
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 8px;
+
+    }
+
+
+    /* Contenu */
+
+    .program-info,
+    .program-event-reverse .program-info {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 0;
+
+        gap: 25px;
+
+    }
+
+
+    /* Photo */
+
+    .program-photo {
+
+        width: 145px;
+
+        height: 195px;
+
+        padding: 5px;
+
+    }
+
+
+    /* Texte */
+
+    .program-text,
+    .program-event-reverse .program-text {
+
+        text-align: left;
+
+        max-width: 100%;
+
+    }
+
+
+    .program-text h3 {
+
+        font-size: 43px;
+
+    }
+
+
+    .program-ending {
+
+        margin-top: 50px;
+
+    }
+
+
+    .program-ending h3 {
+
+        font-size: 70px;
+
+    }
+
+}
+
+/* =====================================================
+   COMMENT VENIR
+===================================================== */
+
+.location-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #465247;
+
+    color: #f7f3ec;
+
+    padding:
+        160px 6%
+        180px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.location-intro {
+
+    max-width: 800px;
+
+    margin:
+        0 auto 100px;
+
+    text-align: center;
+
+}
+
+
+.location-label {
+
+    color: #d8c69a;
+
+}
+
+
+.location-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(75px, 10vw, 125px);
+
+    line-height: .7;
+
+    font-weight: 400;
+
+    letter-spacing: -4px;
+
+    margin:
+        25px 0 35px;
+
+}
+
+
+.location-intro h2 em {
+
+    color: #d8c69a;
+
+}
+
+
+.location-intro p {
+
+    max-width: 430px;
+
+    margin: auto;
+
+    color:
+        rgba(247,243,236,.65);
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   CARTE
+===================================================== */
+
+.location-map {
+
+    position: relative;
+
+    max-width: 1150px;
+
+    height: 600px;
+
+    margin: 0 auto 110px;
+
+    overflow: hidden;
+
+    background:
+        #3e4941;
+
+    border:
+        1px solid
+        rgba(216,198,154,.15);
+
+}
+
+
+/* =====================================================
+   DÉCORATIONS
+===================================================== */
+
+.map-decoration {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(216,198,154,.07);
+
+    border-radius: 50%;
+
+}
+
+
+.map-decoration-one {
+
+    width: 500px;
+
+    height: 500px;
+
+    top: -250px;
+
+    left: -120px;
+
+}
+
+
+.map-decoration-two {
+
+    width: 700px;
+
+    height: 700px;
+
+    right: -350px;
+
+    bottom: -350px;
+
+}
+
+
+/* =====================================================
+   ROUTES DÉCORATIVES
+===================================================== */
+
+.map-road {
+
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        rgba(247,243,236,.07);
+
+    transform-origin: left center;
+
+}
+
+
+.road-one {
+
+    width: 85%;
+
+    top: 27%;
+
+    left: -5%;
+
+    transform:
+        rotate(12deg);
+
+}
+
+
+.road-two {
+
+    width: 75%;
+
+    top: 72%;
+
+    left: 20%;
+
+    transform:
+        rotate(-18deg);
+
+}
+
+
+.road-three {
+
+    width: 60%;
+
+    top: 48%;
+
+    left: 30%;
+
+    transform:
+        rotate(34deg);
+
+}
+
+
+/* =====================================================
+   TRAJET
+===================================================== */
+
+.wedding-route {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.route-line {
+
+    position: absolute;
+
+    width: 42%;
+
+    height: 1px;
+
+    top: 51%;
+
+    left: 28%;
+
+    background:
+        #d8c69a;
+
+    transform-origin: left center;
+
+    transform:
+        scaleX(0)
+        rotate(-8deg);
+
+    transition:
+        transform 1.5s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.location-map.visible
+.route-line {
+
+    transform:
+        scaleX(1)
+        rotate(-8deg);
+
+}
+
+
+/* =====================================================
+   POINTS
+===================================================== */
+
+.route-dot {
+
+    position: absolute;
+
+    width: 46px;
+
+    height: 46px;
+
+    border:
+        1px solid
+        #d8c69a;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        #465247;
+
+    color:
+        #d8c69a;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    z-index: 3;
+
+    opacity: 0;
+
+    transform:
+        scale(.5);
+
+    transition:
+        opacity .5s ease,
+        transform .6s ease;
+
+}
+
+
+.location-map.visible
+.route-dot {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+}
+
+
+.route-start {
+
+    top: 43%;
+
+    left: 24%;
+
+}
+
+
+.route-end {
+
+    top: 48%;
+
+    right: 24%;
+
+    transition-delay: .7s;
+
+}
+
+
+/* =====================================================
+   LABELS CARTE
+===================================================== */
+
+.map-location {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    opacity: 0;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+
+.location-map.visible
+.map-location {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.map-location-start {
+
+    top: 30%;
+
+    left: 16%;
+
+    transform:
+        translateY(15px);
+
+}
+
+
+.map-location-end {
+
+    top: 57%;
+
+    right: 12%;
+
+    transform:
+        translateY(15px);
+
+    transition-delay: .5s;
+
+}
+
+
+.map-pin {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(216,198,154,.7);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #d8c69a;
+
+    font-size: 12px;
+
+}
+
+
+.map-location-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.map-location-text span {
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #d8c69a;
+
+}
+
+
+.map-location-text strong {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+}
+
+
+/* =====================================================
+   CENTRE
+===================================================== */
+
+.map-center-text {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    text-align: center;
+
+    opacity: .35;
+
+}
+
+
+.map-center-text span {
+
+    display: block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.map-center-text i {
+
+    color: #d8c69a;
+
+    font-style: normal;
+
+}
+
+
+.map-center-text small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    color: #d8c69a;
+
+}
+
+
+/* =====================================================
+   CARTES DES LIEUX
+===================================================== */
+
+.location-cards {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+}
+
+
+.location-card {
+
+    position: relative;
+
+    min-height: 480px;
+
+    padding: 55px;
+
+    border:
+        1px solid
+        rgba(216,198,154,.18);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .6s
+        cubic-bezier(.16,1,.3,1),
+        background .5s ease;
+
+}
+
+
+.location-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    background:
+        rgba(255,255,255,.05);
+
+}
+
+
+.location-card-number {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 35px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    color: #d8c69a;
+
+    opacity: .8;
+
+}
+
+
+.location-card-content {
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.location-card-label {
+
+    text-transform: uppercase;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #d8c69a;
+
+}
+
+
+.location-card h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 52px;
+
+    font-weight: 400;
+
+    margin:
+        15px 0 5px;
+
+}
+
+
+.location-time {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 55px;
+
+    color:
+        rgba(247,243,236,.45);
+
+}
+
+
+.location-separator {
+
+    width: 45px;
+
+    height: 1px;
+
+    background: #d8c69a;
+
+    margin:
+        25px 0;
+
+}
+
+
+.location-card p {
+
+    font-size: 12px;
+
+    margin: 0 0 7px;
+
+}
+
+
+.location-address {
+
+    font-size: 10px;
+
+    color:
+        rgba(247,243,236,.55);
+
+}
+
+
+/* =====================================================
+   BOUTON
+===================================================== */
+
+.location-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: fit-content;
+
+    margin-top: 35px;
+
+    padding-bottom: 7px;
+
+    border-bottom:
+        1px solid
+        rgba(216,198,154,.5);
+
+    color: #f7f3ec;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.location-button span {
+
+    color: #d8c69a;
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.location-button:hover span {
+
+    transform:
+        translateX(6px);
+
+}
+
+
+/* =====================================================
+   BESOIN D'AIDE
+===================================================== */
+
+.location-help {
+
+    max-width: 600px;
+
+    margin:
+        150px auto 0;
+
+    text-align: center;
+
+}
+
+
+.location-help-symbol {
+
+    color: #d8c69a;
+
+    font-size: 11px;
+
+}
+
+
+.location-help h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+    line-height: .85;
+
+    margin:
+        30px 0;
+
+}
+
+
+.location-help h3 em {
+
+    color: #d8c69a;
+
+}
+
+
+.location-help p {
+
+    max-width: 380px;
+
+    margin: auto;
+
+    color:
+        rgba(247,243,236,.6);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+.location-contact {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+    padding-bottom: 7px;
+
+    border-bottom:
+        1px solid
+        rgba(216,198,154,.5);
+
+    color: #f7f3ec;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.location-contact span {
+
+    color: #d8c69a;
+
+}
+
+
+/* =====================================================
+   FIN
+===================================================== */
+
+.location-ending {
+
+    max-width: 600px;
+
+    margin:
+        180px auto 0;
+
+    text-align: center;
+
+}
+
+
+.location-ending > span {
+
+    color: #d8c69a;
+
+}
+
+
+.location-ending p {
+
+    margin:
+        25px 0;
+
+    color:
+        rgba(247,243,236,.6);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+}
+
+
+.location-ending h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(70px, 9vw, 105px);
+
+    font-weight: 400;
+
+    line-height: .7;
+
+    letter-spacing: -3px;
+
+    margin: 0;
+
+}
+
+
+.location-ending h3 em {
+
+    color: #d8c69a;
+
+}
+
+
+.location-heart {
+
+    margin-top: 30px;
+
+    color: #d8c69a;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 36px;
+
+    animation:
+        countdownHeart 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 760px) {
+
+    .location-section {
+
+        padding:
+            110px 18px
+            130px;
+
+    }
+
+
+    .location-intro {
+
+        margin-bottom: 70px;
+
+    }
+
+
+    .location-intro h2 {
+
+        font-size: 78px;
+
+    }
+
+
+    .location-map {
+
+        height: 560px;
+
+        margin-bottom: 70px;
+
+    }
+
+
+    .map-center-text {
+
+        top: 52%;
+
+    }
+
+
+    .map-center-text span {
+
+        font-size: 20px;
+
+    }
+
+
+    .map-location-start {
+
+        top: 18%;
+
+        left: 8%;
+
+    }
+
+
+    .map-location-end {
+
+        top: 73%;
+
+        right: 7%;
+
+    }
+
+
+    .route-start {
+
+        top: 35%;
+
+        left: 15%;
+
+    }
+
+
+    .route-end {
+
+        top: 64%;
+
+        right: 15%;
+
+    }
+
+
+    .route-line {
+
+        width: 48%;
+
+        top: 50%;
+
+        left: 26%;
+
+        transform:
+            scaleX(0)
+            rotate(65deg);
+
+    }
+
+
+    .location-map.visible
+    .route-line {
+
+        transform:
+            scaleX(1)
+            rotate(65deg);
+
+    }
+
+
+    .location-cards {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+
+    .location-card {
+
+        min-height: 430px;
+
+        padding: 40px;
+
+    }
+
+
+    .location-card h3 {
+
+        font-size: 48px;
+
+    }
+
+
+    .location-help {
+
+        margin-top: 100px;
+
+    }
+
+
+    .location-help h3 {
+
+        font-size: 52px;
+
+    }
+
+
+    .location-ending {
+
+        margin-top: 120px;
+
+    }
+
+
+    .location-ending h3 {
+
+        font-size: 75px;
+
+    }
+
+}
+
+
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: white;
+
+    color: #292720;
+
+    padding:
+        170px 6%
+        190px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.rsvp-intro {
+
+    max-width: 800px;
+
+    margin:
+        0 auto 100px;
+
+    text-align: center;
+
+}
+
+
+.rsvp-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(80px, 11vw, 135px);
+
+    line-height: .68;
+
+    font-weight: 400;
+
+    letter-spacing: -5px;
+
+    margin:
+        25px 0 40px;
+
+}
+
+
+.rsvp-intro h2 em {
+
+    color: #6f786d;
+
+}
+
+
+.rsvp-intro p {
+
+    max-width: 380px;
+
+    margin: auto;
+
+    color: #777268;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+.rsvp-date {
+
+    margin-top: 30px;
+
+    color: #b49a67;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.rsvp-container {
+
+    position: relative;
+
+    max-width: 680px;
+
+    min-height: 570px;
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   ÉTAPES
+===================================================== */
+
+.rsvp-step {
+
+    display: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+}
+
+
+.rsvp-step.active {
+
+    display: block;
+
+    animation:
+        rsvpStepIn
+        .8s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+@keyframes rsvpStepIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   NUMÉRO
+===================================================== */
+
+.rsvp-step-number {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #b49a67;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =====================================================
+   TITRES
+===================================================== */
+
+.rsvp-step h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(48px, 7vw, 72px);
+
+    font-weight: 400;
+
+    line-height: .85;
+
+    margin:
+        0 0 20px;
+
+}
+
+
+.rsvp-step h3 em {
+
+    color: #b49a67;
+
+    font-style: normal;
+
+}
+
+
+.rsvp-step > p {
+
+    max-width: 380px;
+
+    color: #777268;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   CHOIX OUI / NON
+===================================================== */
+
+.rsvp-choice-container {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 60px;
+
+}
+
+
+.rsvp-choice {
+
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 35px;
+
+    border:
+        1px solid
+        rgba(180,154,103,.35);
+
+    background:
+        transparent;
+
+    color: #292720;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background .5s ease,
+        color .5s ease,
+        transform .5s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.rsvp-choice:hover {
+
+    background: #465247;
+
+    color: #f7f3ec;
+
+    transform:
+        translateY(-6px);
+
+}
+
+
+.choice-symbol {
+
+    display: block;
+
+    margin-bottom: 55px;
+
+    color: #b49a67;
+
+    font-size: 24px;
+
+}
+
+
+.choice-title {
+
+    display: block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 29px;
+
+    line-height: 1;
+
+}
+
+
+.choice-arrow {
+
+    position: absolute;
+
+    right: 30px;
+
+    bottom: 30px;
+
+    color: #b49a67;
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.rsvp-choice:hover
+.choice-arrow {
+
+    transform:
+        translateX(7px);
+
+}
+
+
+/* =====================================================
+   CHAMPS
+===================================================== */
+
+.rsvp-fields {
+
+    margin-top: 55px;
+
+}
+
+
+.rsvp-field {
+
+    position: relative;
+
+    margin-bottom: 40px;
+
+}
+
+
+.rsvp-field label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #b49a67;
+
+    text-transform: uppercase;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.rsvp-field input {
+
+    width: 100%;
+
+    padding:
+        10px 0 15px;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        rgba(41,39,32,.25);
+
+    outline: none;
+
+    background: transparent;
+
+    color: #292720;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+}
+
+
+.rsvp-field input::placeholder {
+
+    color:
+        rgba(41,39,32,.3);
+
+}
+
+
+/* =====================================================
+   BOUTON CONTINUER
+===================================================== */
+
+.rsvp-next {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 20px;
+
+    padding:
+        15px 0;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        #b49a67;
+
+    background: transparent;
+
+    color: #292720;
+
+    text-transform: uppercase;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+}
+
+
+.rsvp-next span {
+
+    color: #b49a67;
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.rsvp-next:hover span {
+
+    transform:
+        translateX(7px);
+
+}
+
+
+/* =====================================================
+   COMPTEUR
+===================================================== */
+
+.guest-counter {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 55px;
+
+    margin:
+        70px 0 55px;
+
+}
+
+
+.guest-counter button {
+
+    width: 48px;
+
+    height: 48px;
+
+    border:
+        1px solid
+        rgba(180,154,103,.5);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #292720;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+
+}
+
+
+.guest-counter button:hover {
+
+    background: #465247;
+
+    color: #f7f3ec;
+
+}
+
+
+.guest-number {
+
+    min-width: 100px;
+
+    text-align: center;
+
+}
+
+
+.guest-number strong {
+
+    display: block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 80px;
+
+    font-weight: 400;
+
+    line-height: .7;
+
+    color: #6f786d;
+
+}
+
+
+.guest-number span {
+
+    display: block;
+
+    margin-top: 20px;
+
+    color: #777268;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.rsvp-message-field {
+
+    position: relative;
+
+    margin-top: 50px;
+
+}
+
+
+.rsvp-message-field textarea {
+
+    width: 100%;
+
+    height: 180px;
+
+    resize: none;
+
+    padding: 20px;
+
+    border:
+        1px solid
+        rgba(180,154,103,.35);
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,.25);
+
+    color: #292720;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+}
+
+
+.rsvp-message-field textarea::placeholder {
+
+    color:
+        rgba(41,39,32,.3);
+
+}
+
+
+#message-counter {
+
+    position: absolute;
+
+    right: 12px;
+
+    bottom: 10px;
+
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   ÉTAPE NON
+===================================================== */
+
+#rsvp-step-no {
+
+    text-align: center;
+
+}
+
+
+#rsvp-step-no > p {
+
+    margin:
+        0 auto;
+
+}
+
+
+.rsvp-sad-heart {
+
+    margin:
+        60px 0 45px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 70px;
+
+    color: #b49a67;
+
+    animation:
+        rsvpHeart 3s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.rsvp-success {
+
+    display: none;
+
+    min-height: 500px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+}
+
+
+.rsvp-success.active {
+
+    display: flex;
+
+    animation:
+        successAppear
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+@keyframes successAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.success-heart {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color: #b49a67;
+
+    font-size: 60px;
+
+    animation:
+        rsvpHeart 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.rsvp-success > span {
+
+    margin-top: 20px;
+
+    color: #b49a67;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.rsvp-success h3 {
+
+    margin:
+        30px 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(52px, 7vw, 75px);
+
+    font-weight: 400;
+
+    line-height: .82;
+
+}
+
+
+.rsvp-success h3 strong {
+
+    color: #6f786d;
+
+    font-weight: 400;
+
+}
+
+
+.rsvp-success p {
+
+    color: #777268;
+
+    font-size: 11px;
+
+}
+
+
+.rsvp-success small {
+
+    margin-top: 40px;
+
+    color: #b49a67;
+
+    font-size: 7px;
+
+    line-height: 2;
+
+    letter-spacing: 4px;
+
+}
+
+
+@keyframes rsvpHeart {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 700px) {
+
+    .rsvp-section {
+
+        padding:
+            120px 20px
+            140px;
+
+    }
+
+
+    .rsvp-intro h2 {
+
+        font-size: 80px;
+
+    }
+
+
+    .rsvp-choice-container {
+
+        grid-template-columns: 1fr;
+
+        margin-top: 45px;
+
+    }
+
+
+    .rsvp-choice {
+
+        min-height: 180px;
+
+    }
+
+
+    .choice-symbol {
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .guest-counter {
+
+        gap: 35px;
+
+    }
+
+
+    .guest-number strong {
+
+        font-size: 70px;
+
+    }
+
+
+    .rsvp-success h3 {
+
+        font-size: 58px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   FOOTER — WEDDING
+===================================================== */
+
+.wedding-footer {
+
+    position: relative;
+
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #111412;
+
+    color: #292720;
+
+    padding:
+        120px 6%
+        70px;
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.footer-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   PETIT LABEL
+===================================================== */
+
+.footer-label {
+
+    display: block;
+
+    color: #b49a67;
+
+    font-size: 7px;
+
+    letter-spacing: 5px;
+
+    opacity: 0;
+
+    animation:
+        footerFadeIn
+        1.2s
+        ease
+        forwards;
+
+}
+
+
+/* =====================================================
+   NOMS
+===================================================== */
+
+.footer-names {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin:
+        45px 0 30px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(65px, 10vw, 125px);
+
+    font-weight: 400;
+
+    line-height: .7;
+
+    letter-spacing: -5px;
+
+}
+
+
+.footer-names span {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    animation:
+        footerNameReveal
+        1.3s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+.footer-names span:first-child {
+
+    animation-delay: .2s;
+
+}
+
+
+.footer-names span:last-child {
+
+    animation-delay: .45s;
+
+}
+
+
+.footer-names small {
+
+    color: #b49a67;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    opacity: 0;
+
+    animation:
+        footerFadeIn
+        1s
+        .7s
+        ease
+        forwards;
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.footer-date {
+
+    color: #6f786d;
+
+    font-size: 8px;
+
+    letter-spacing: 6px;
+
+    opacity: 0;
+
+    animation:
+        footerFadeIn
+        1s
+        .8s
+        ease
+        forwards;
+
+}
+
+
+/* =====================================================
+   CITATION
+===================================================== */
+
+.footer-quote {
+
+    margin:
+        75px auto 0;
+
+    color: #777268;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(25px, 3vw, 36px);
+
+    line-height: 1.05;
+
+    font-style: italic;
+
+    opacity: 0;
+
+    animation:
+        footerFadeIn
+        1.2s
+        1s
+        ease
+        forwards;
+
+}
+
+
+/* =====================================================
+   COEUR
+===================================================== */
+
+.footer-heart {
+
+    margin-top: 50px;
+
+    color: #b49a67;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 55px;
+
+    opacity: 0;
+
+    animation:
+        footerHeart
+        1.4s
+        1.3s
+        ease
+        forwards;
+
+}
+
+
+@keyframes footerHeart {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(.5);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.15);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.footer-love {
+
+    margin-top: 10px;
+
+    color: #777268;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    animation:
+        footerFadeIn
+        1s
+        1.5s
+        ease
+        forwards;
+
+}
+
+
+/* =====================================================
+   LIGNE
+===================================================== */
+
+.footer-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    margin:
+        70px auto 35px;
+
+    background: #b49a67;
+
+    transform:
+        scaleX(0);
+
+    transform-origin: center;
+
+    animation:
+        footerLine
+        1.2s
+        1.7s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+@keyframes footerLine {
+
+    to {
+
+        transform:
+            scaleX(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   BAS DU FOOTER
+===================================================== */
+
+.footer-bottom {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    color:
+        rgba(41,39,32,.35);
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+    opacity: 0;
+
+    animation:
+        footerFadeIn
+        1s
+        1.9s
+        ease
+        forwards;
+
+}
+
+
+/* =====================================================
+   ÉTOILE
+===================================================== */
+
+.footer-star {
+
+    position: absolute;
+
+    top: 15%;
+
+    left: 12%;
+
+    color: #b49a67;
+
+    font-size: 10px;
+
+    opacity: .6;
+
+    animation:
+        footerFloat
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes footerFloat {
+
+    0%, 100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+
+    }
+
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes footerFadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes footerNameReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 700px) {
+
+    .wedding-footer {
+
+        min-height: 85vh;
+
+        padding:
+            100px 20px
+            50px;
+
+    }
+
+
+    .footer-names {
+
+        gap: 14px;
+
+        font-size: 70px;
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .footer-names small {
+
+        font-size: 30px;
+
+    }
+
+
+    .footer-quote {
+
+        margin-top: 60px;
+
+        font-size: 28px;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .footer-star {
+
+        left: 8%;
+
+        top: 10%;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MUSIQUE — OUR SONG
+===================================================== */
+
+.music-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #303a34;
+
+    color: #f7f3ec;
+
+    padding:
+        160px 6%
+        120px;
+
+}
+
+
+/* =====================================================
+   ORBITES DÉCORATIVES
+===================================================== */
+
+.music-orbit {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(216,198,154,.07);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+
+.music-orbit-one {
+
+    width: 700px;
+
+    height: 700px;
+
+    left: -350px;
+
+    top: 10%;
+
+}
+
+
+.music-orbit-two {
+
+    width: 900px;
+
+    height: 900px;
+
+    right: -450px;
+
+    bottom: -400px;
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.music-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.music-label {
+
+    color: #d8c69a;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.music-content h2 {
+
+    margin:
+        35px 0 25px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(75px, 10vw, 125px);
+
+    font-weight: 400;
+
+    line-height: .72;
+
+    letter-spacing: -4px;
+
+}
+
+
+.music-content h2 em {
+
+    color: #d8c69a;
+
+    font-style: normal;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.music-intro {
+
+    max-width: 350px;
+
+    margin:
+        0 auto;
+
+    color:
+        rgba(247,243,236,.55);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   VISUALISEUR
+===================================================== */
+
+.music-visualizer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    height: 85px;
+
+    margin:
+        55px auto 35px;
+
+}
+
+
+.music-visualizer span {
+
+    width: 2px;
+
+    height:
+        var(--bar-height, 20px);
+
+    background: #d8c69a;
+
+    opacity: .7;
+
+    transform:
+        scaleY(.35);
+
+    transform-origin: center;
+
+    transition:
+        transform .2s ease;
+
+}
+
+
+/* =====================================================
+   ANIMATION VISUALISEUR
+===================================================== */
+
+.music-playing
+.music-visualizer span {
+
+    animation:
+        musicBars
+        var(--animation-duration, 1s)
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+.music-visualizer span:nth-child(1) {
+    --bar-height: 18px;
+    --animation-duration: .8s;
+}
+
+.music-visualizer span:nth-child(2) {
+    --bar-height: 35px;
+    --animation-duration: .6s;
+}
+
+.music-visualizer span:nth-child(3) {
+    --bar-height: 24px;
+    --animation-duration: .9s;
+}
+
+.music-visualizer span:nth-child(4) {
+    --bar-height: 48px;
+    --animation-duration: .7s;
+}
+
+.music-visualizer span:nth-child(5) {
+    --bar-height: 30px;
+    --animation-duration: 1s;
+}
+
+.music-visualizer span:nth-child(6) {
+    --bar-height: 58px;
+    --animation-duration: .65s;
+}
+
+.music-visualizer span:nth-child(7) {
+    --bar-height: 40px;
+    --animation-duration: .85s;
+}
+
+.music-visualizer span:nth-child(8) {
+    --bar-height: 65px;
+    --animation-duration: .75s;
+}
+
+.music-visualizer span:nth-child(9) {
+    --bar-height: 45px;
+    --animation-duration: .95s;
+}
+
+.music-visualizer span:nth-child(10) {
+    --bar-height: 70px;
+    --animation-duration: .65s;
+}
+
+.music-visualizer span:nth-child(11) {
+    --bar-height: 52px;
+    --animation-duration: .8s;
+}
+
+.music-visualizer span:nth-child(12) {
+    --bar-height: 70px;
+    --animation-duration: .7s;
+}
+
+.music-visualizer span:nth-child(13) {
+    --bar-height: 42px;
+    --animation-duration: .9s;
+}
+
+.music-visualizer span:nth-child(14) {
+    --bar-height: 60px;
+    --animation-duration: .75s;
+}
+
+.music-visualizer span:nth-child(15) {
+    --bar-height: 35px;
+    --animation-duration: 1s;
+}
+
+.music-visualizer span:nth-child(16) {
+    --bar-height: 55px;
+    --animation-duration: .7s;
+}
+
+.music-visualizer span:nth-child(17) {
+    --bar-height: 30px;
+    --animation-duration: .85s;
+}
+
+.music-visualizer span:nth-child(18) {
+    --bar-height: 48px;
+    --animation-duration: .65s;
+}
+
+.music-visualizer span:nth-child(19) {
+    --bar-height: 25px;
+    --animation-duration: .9s;
+}
+
+.music-visualizer span:nth-child(20) {
+    --bar-height: 40px;
+    --animation-duration: .7s;
+}
+
+.music-visualizer span:nth-child(21) {
+    --bar-height: 22px;
+    --animation-duration: .8s;
+}
+
+.music-visualizer span:nth-child(22) {
+    --bar-height: 35px;
+    --animation-duration: .6s;
+}
+
+.music-visualizer span:nth-child(23) {
+    --bar-height: 18px;
+    --animation-duration: .9s;
+}
+
+.music-visualizer span:nth-child(24) {
+    --bar-height: 30px;
+    --animation-duration: .7s;
+}
+
+
+@keyframes musicBars {
+
+    from {
+
+        transform:
+            scaleY(.25);
+
+    }
+
+    to {
+
+        transform:
+            scaleY(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   TITRE CHANSON
+===================================================== */
+
+.music-track-label {
+
+    display: block;
+
+    color: #d8c69a;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.music-track h3 {
+
+    margin:
+        12px 0 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   PLAYER
+===================================================== */
+
+.music-player {
+
+    max-width: 500px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin:
+        45px auto 0;
+
+}
+
+
+.music-play {
+
+    flex-shrink: 0;
+
+    width: 65px;
+
+    height: 65px;
+
+    border:
+        1px solid
+        #d8c69a;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #d8c69a;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition:
+        background .4s ease,
+        color .4s ease,
+        transform .4s ease;
+
+}
+
+
+.music-play:hover {
+
+    background: #d8c69a;
+
+    color: #303a34;
+
+    transform:
+        scale(1.05);
+
+}
+
+
+.pause-icon {
+
+    display: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.music-playing
+.pause-icon {
+
+    display: inline-block;
+
+}
+
+
+.music-playing
+.play-icon {
+
+    display: none;
+
+}
+
+
+/* =====================================================
+   PROGRESSION
+===================================================== */
+
+.music-progress-area {
+
+    flex: 1;
+
+}
+
+
+.music-time {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color:
+        rgba(247,243,236,.4);
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.music-progress {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        rgba(247,243,236,.18);
+
+    cursor: pointer;
+
+}
+
+
+.music-progress-bar {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #d8c69a;
+
+}
+
+
+.music-progress-dot {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 0%;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #d8c69a;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+/* =====================================================
+   SIGNATURE
+===================================================== */
+
+.music-signature {
+
+    margin-top: 70px;
+
+}
+
+
+.music-signature > span {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: #d8c69a;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+}
+
+
+.music-signature p {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.music-signature p em {
+
+    color: #d8c69a;
+
+    font-style: normal;
+
+}
+
+
+.music-signature small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    color:
+        rgba(247,243,236,.35);
+
+    font-size: 6px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =====================================================
+   BOUTON FLOTTANT
+===================================================== */
+
+.music-floating {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 1000;
+
+    width: 52px;
+
+    height: 52px;
+
+    border:
+        1px solid
+        rgba(216,198,154,.7);
+
+    border-radius: 50%;
+
+    background: #303a34;
+
+    color: #d8c69a;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.15);
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+
+}
+
+
+.music-floating:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.floating-pause {
+
+    display: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.music-floating.playing
+.floating-note {
+
+    display: none;
+
+}
+
+
+.music-floating.playing
+.floating-pause {
+
+    display: inline-block;
+
+}
+
+
+.music-floating.playing {
+
+    animation:
+        floatingMusic 2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes floatingMusic {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+    }
+
+}
+
+
+/* =====================================================
+   FIN DE SECTION
+===================================================== */
+
+.music-ending {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin:
+        130px auto 0;
+
+    text-align: center;
+
+}
+
+
+.music-ending > span {
+
+    color: #d8c69a;
+
+    font-size: 10px;
+
+}
+
+
+.music-ending p {
+
+    margin:
+        25px 0 10px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    color:
+        rgba(247,243,236,.75);
+
+}
+
+
+.music-ending p em {
+
+    color: #d8c69a;
+
+}
+
+
+.music-ending small {
+
+    color:
+        rgba(247,243,236,.35);
+
+    font-size: 6px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 700px) {
+
+    .music-section {
+
+        padding:
+            130px 20px
+            100px;
+
+    }
+
+
+    .music-content h2 {
+
+        font-size: 80px;
+
+    }
+
+
+    .music-visualizer {
+
+        gap: 3px;
+
+        height: 70px;
+
+    }
+
+
+    .music-visualizer span {
+
+        width: 2px;
+
+    }
+
+
+    .music-player {
+
+        gap: 15px;
+
+    }
+
+
+    .music-play {
+
+        width: 58px;
+
+        height: 58px;
+
+    }
+
+
+    .music-signature {
+
+        margin-top: 55px;
+
+    }
+
+
+    .music-ending {
+
+        margin-top: 100px;
+
+    }
+
+
+    .music-floating {
+
+        right: 18px;
+
+        bottom: 18px;
+
+    }
+
+}
